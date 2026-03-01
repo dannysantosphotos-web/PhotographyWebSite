@@ -2,14 +2,14 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useCart } from '@/lib/cart-store';
 import type { ShippingAddress } from '@/lib/cart-store';
-import { Trash2, ArrowRight } from 'lucide-react';
+import { Trash2, ArrowRight, Loader2 } from 'lucide-react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 export default function CartPage() {
   const { items, removeItem, totalPrice, setShippingAddress } = useCart();
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [address, setAddress] = useState<ShippingAddress>({
     fullName: '',
     email: '',
@@ -20,16 +20,41 @@ export default function CartPage() {
     country: '',
   });
 
-  const handleCheckout = (e: React.FormEvent) => {
+  const handleCheckout = async (e: React.FormEvent) => {
     e.preventDefault();
     if (items.length === 0) {
       toast.error('Your cart is empty');
       return;
     }
     setShippingAddress(address);
-    toast.success('Proceeding to payment...');
-    // In future: redirect to Stripe checkout
-    navigate('/checkout');
+    setLoading(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('create-checkout', {
+        body: {
+          items: items.map((item) => ({
+            id: item.id,
+            title: item.title,
+            size: item.size,
+            price: item.price,
+            quantity: item.quantity,
+          })),
+          shippingAddress: address,
+        },
+      });
+
+      if (error) throw error;
+      if (data?.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL returned');
+      }
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Checkout failed';
+      toast.error(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const fields: { name: keyof ShippingAddress; label: string; span?: boolean }[] = [
@@ -52,7 +77,6 @@ export default function CartPage() {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12">
-          {/* Cart items */}
           <div className="lg:col-span-3 space-y-4">
             {items.length === 0 ? (
               <p className="text-body text-muted-foreground py-12 text-center">Your cart is empty.</p>
@@ -85,7 +109,6 @@ export default function CartPage() {
             )}
           </div>
 
-          {/* Shipping form */}
           <form onSubmit={handleCheckout} className="lg:col-span-2 space-y-4">
             <h2 className="text-display text-xl font-bold text-foreground mb-4">Shipping Address</h2>
             <div className="grid grid-cols-2 gap-4">
@@ -103,10 +126,10 @@ export default function CartPage() {
             </div>
             <button
               type="submit"
-              disabled={items.length === 0}
+              disabled={items.length === 0 || loading}
               className="w-full mt-4 py-4 gradient-gold text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-sm hover:opacity-90 transition-all disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-3"
             >
-              Proceed to Payment <ArrowRight size={16} />
+              {loading ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : <>Pay with Stripe <ArrowRight size={16} /></>}
             </button>
           </form>
         </div>
