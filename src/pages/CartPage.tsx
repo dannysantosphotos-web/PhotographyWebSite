@@ -127,7 +127,7 @@ export default function CartPage() {
             <button
               type="submit"
               disabled={items.length === 0 || loading}
-              className="w-full mt-4 py-4 gradient-gold text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-sm hover:opacity-90 transition-all disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-3"
+              className="w-full mt-4 py-4 gradient-teal text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-sm hover:opacity-90 transition-all disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-3"
             >
               {loading ? <><Loader2 size={16} className="animate-spin" /> Processing...</> : <>Pay with Stripe <ArrowRight size={16} /></>}
             </button>

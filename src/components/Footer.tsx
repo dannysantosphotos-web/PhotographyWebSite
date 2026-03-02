@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12">
           <div>
             <h3 className="text-display text-lg font-bold text-foreground mb-4">
-              NOIR<span className="text-gradient-gold">PRINTS</span>
+              NOIR<span className="text-gradient-teal">PRINTS</span>
             </h3>
             <p className="text-body text-sm text-muted-foreground leading-relaxed">
               Museum-quality fine art prints crafted with archival inks on premium paper. Every print tells a story.
