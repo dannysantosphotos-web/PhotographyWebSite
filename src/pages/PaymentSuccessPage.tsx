@@ -30,7 +30,7 @@ export default function PaymentSuccessPage() {
           </p>
           <Link
             to="/gallery"
-            className="inline-flex items-center gap-3 px-8 py-4 gradient-teal text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-sm hover:opacity-90 transition-all"
+            className="inline-flex items-center gap-3 px-8 py-4 gradient-teal text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-full hover:opacity-90 transition-all"
           >
             Continue Shopping
           </Link>

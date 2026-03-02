@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import { useCart } from '@/lib/cart-store';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -13,9 +13,30 @@ export default function Navbar() {
   const { totalItems } = useCart();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const isHome = location.pathname === '/';
+
+  useEffect(() => {
+    if (!isHome) {
+      setVisible(true);
+      return;
+    }
+    const onScroll = () => {
+      setVisible(window.scrollY > window.innerHeight * 0.85);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [isHome]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        visible
+          ? 'bg-background/80 backdrop-blur-xl border-b border-border translate-y-0 opacity-100'
+          : '-translate-y-full opacity-0 pointer-events-none'
+      }`}
+    >
       <nav className="container flex items-center justify-between h-16 px-6">
         <Link to="/" className="text-display text-xl font-bold tracking-wider text-foreground">
           NOIR<span className="text-gradient-teal">PRINTS</span>

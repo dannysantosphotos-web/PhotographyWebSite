@@ -49,7 +49,7 @@ export default function PrintCard({ print }: Props) {
             <button
               key={size.label}
               onClick={() => setSelectedSize(i)}
-              className={`text-body text-xs px-3 py-1.5 border rounded-sm transition-all ${
+              className={`text-body text-xs px-3 py-1.5 border rounded-full transition-all ${
                 i === selectedSize
                   ? 'border-primary bg-primary text-primary-foreground'
                   : 'border-border text-muted-foreground hover:border-primary hover:text-foreground'
@@ -61,7 +61,7 @@ export default function PrintCard({ print }: Props) {
         </div>
         <button
           onClick={handleAdd}
-          className="w-full mt-2 py-3 text-body text-sm font-semibold uppercase tracking-widest gradient-teal text-primary-foreground rounded-sm transition-all hover:opacity-90 active:scale-[0.98]"
+          className="w-full mt-2 py-3 text-body text-sm font-semibold uppercase tracking-widest gradient-teal text-primary-foreground rounded-full transition-all hover:opacity-90 active:scale-[0.98]"
         >
           Add to Cart
         </button>

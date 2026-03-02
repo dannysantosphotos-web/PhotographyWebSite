@@ -48,7 +48,7 @@
     --light-grey: 0 0% 75%;
     --deep-black: 0 0% 4%;
 
-    --radius: 0.25rem;
+    --radius: 9999px;
 
     font-family: 'Inter', sans-serif;
   }
