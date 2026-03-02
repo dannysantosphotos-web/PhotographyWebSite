@@ -29,7 +29,7 @@ export default function ContactPage() {
             </p>
             <div className="space-y-5">
               <div className="flex items-center gap-4 p-4 bg-card border border-border rounded-sm">
-                <div className="w-10 h-10 gradient-teal rounded-sm flex items-center justify-center">
+                <div className="w-10 h-10 gradient-teal rounded-full flex items-center justify-center">
                   <Mail size={18} className="text-primary-foreground" />
                 </div>
                 <div>
@@ -38,7 +38,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="flex items-center gap-4 p-4 bg-card border border-border rounded-sm">
-                <div className="w-10 h-10 gradient-teal rounded-sm flex items-center justify-center">
+                <div className="w-10 h-10 gradient-teal rounded-full flex items-center justify-center">
                   <Phone size={18} className="text-primary-foreground" />
                 </div>
                 <div>
@@ -47,7 +47,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="flex items-center gap-4 p-4 bg-card border border-border rounded-sm">
-                <div className="w-10 h-10 gradient-teal rounded-sm flex items-center justify-center">
+                <div className="w-10 h-10 gradient-teal rounded-full flex items-center justify-center">
                   <MapPin size={18} className="text-primary-foreground" />
                 </div>
                 <div>
@@ -91,7 +91,7 @@ export default function ContactPage() {
             </div>
             <button
               type="submit"
-              className="inline-flex items-center gap-3 px-8 py-3 gradient-teal text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-sm hover:opacity-90 transition-all"
+              className="inline-flex items-center gap-3 px-8 py-3 gradient-teal text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-full hover:opacity-90 transition-all"
             >
               Send Message <Send size={14} />
             </button>

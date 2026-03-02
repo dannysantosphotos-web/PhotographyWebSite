@@ -25,7 +25,7 @@ export default function GalleryPage() {
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`text-body text-xs px-4 py-2 border rounded-sm uppercase tracking-widest transition-all ${
+              className={`text-body text-xs px-4 py-2 border rounded-full uppercase tracking-widest transition-all ${
                 active === cat
                   ? 'border-primary bg-primary text-primary-foreground'
                   : 'border-border text-muted-foreground hover:border-primary hover:text-foreground'
