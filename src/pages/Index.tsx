@@ -23,14 +23,14 @@ const Index = () => {
           <p className="text-body text-sm uppercase tracking-[0.3em] text-primary mb-4">Fine Art Photography</p>
           <h1 className="text-display text-5xl md:text-7xl lg:text-8xl font-black text-foreground leading-[0.95] mb-6">
             Captured<br />
-            <span className="text-gradient-gold">Moments</span>
+            <span className="text-gradient-teal">Moments</span>
           </h1>
           <p className="text-body text-lg text-muted-foreground max-w-md mx-auto mb-10">
             Museum-quality prints on archival paper. Own a piece of the extraordinary.
           </p>
           <Link
             to="/gallery"
-            className="inline-flex items-center gap-3 px-8 py-4 gradient-gold text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-sm hover:opacity-90 transition-all"
+            className="inline-flex items-center gap-3 px-8 py-4 gradient-teal text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-sm hover:opacity-90 transition-all"
           >
             Explore Gallery <ArrowRight size={16} />
           </Link>

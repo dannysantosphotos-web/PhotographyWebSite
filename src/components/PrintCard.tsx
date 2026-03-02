@@ -24,7 +24,7 @@ export default function PrintCard({ print }: Props) {
   };
 
   return (
-    <div className="group relative bg-card border border-border rounded-sm overflow-hidden transition-all duration-500 hover:border-glow hover:glow-gold">
+    <div className="group relative bg-card border border-border rounded-sm overflow-hidden transition-all duration-500 hover:border-glow hover:glow-teal">
       <div className="aspect-[3/4] overflow-hidden">
         <img
           src={print.image}
@@ -61,7 +61,7 @@ export default function PrintCard({ print }: Props) {
         </div>
         <button
           onClick={handleAdd}
-          className="w-full mt-2 py-3 text-body text-sm font-semibold uppercase tracking-widest gradient-gold text-primary-foreground rounded-sm transition-all hover:opacity-90 active:scale-[0.98]"
+          className="w-full mt-2 py-3 text-body text-sm font-semibold uppercase tracking-widest gradient-teal text-primary-foreground rounded-sm transition-all hover:opacity-90 active:scale-[0.98]"
         >
           Add to Cart
         </button>

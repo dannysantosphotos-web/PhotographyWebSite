@@ -17,7 +17,7 @@ export default function PaymentSuccessPage() {
       <Navbar />
       <main className="container px-6 pt-28 pb-24 max-w-2xl mx-auto text-center">
         <div className="animate-fade-in">
-          <div className="w-20 h-20 gradient-gold rounded-full flex items-center justify-center mx-auto mb-8">
+          <div className="w-20 h-20 gradient-teal rounded-full flex items-center justify-center mx-auto mb-8">
             <CheckCircle size={40} className="text-primary-foreground" />
           </div>
           <p className="text-body text-xs uppercase tracking-[0.3em] text-primary mb-2">Order Confirmed</p>
@@ -30,7 +30,7 @@ export default function PaymentSuccessPage() {
           </p>
           <Link
             to="/gallery"
-            className="inline-flex items-center gap-3 px-8 py-4 gradient-gold text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-sm hover:opacity-90 transition-all"
+            className="inline-flex items-center gap-3 px-8 py-4 gradient-teal text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-sm hover:opacity-90 transition-all"
           >
             Continue Shopping
           </Link>
