@@ -48,6 +48,8 @@
     --light-grey: 0 0% 75%;
     --deep-black: 0 0% 4%;
 
+    --radius: 0.25rem;
+
     font-family: 'Inter', sans-serif;
   }
 }
