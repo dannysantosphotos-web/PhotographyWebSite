@@ -1,9 +1,9 @@
-import printPortrait from '@/assets/print-portrait.jpg';
-import printUrban from '@/assets/print-urban.jpg';
+import printPortrait from '@/assets/wooden.jpg';
+import printUrban from '@/assets/water_leaf.jpg';
 import printOcean from '@/assets/print-ocean.jpg';
 import printForest from '@/assets/print-forest.jpg';
 import printArchitecture from '@/assets/print-architecture.jpg';
-import heroImage from '@/assets/hero-print.jpg';
+import heroImage from '@/assets/from_the_sky.jpg';
 
 export interface PrintData {
   id: string;
