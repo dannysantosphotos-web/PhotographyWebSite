@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import heroImage from '@/assets/from_the_sky.jpg';
+import heroVideo from '@/assets/Timeline 1.mov';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PrintCard from '@/components/PrintCard';
@@ -16,13 +17,19 @@ const Index = () => {
       {/* Hero */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Fotografia" className="w-full h-full object-cover" />
+          {/* <img src={heroImage} alt="Fotografia" className="w-full h-full object-cover" /> */}
+          <video 
+          src={heroVideo} 
+          autoPlay
+          muted
+          playsInline
+          width="600" className="w-full h-full object-cover pt-[30px]"></video>
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
         </div>
-        <div className="relative z-10 text-center px-6 animate-fade-in">
+        <div className="relative z-10 text-center px-6 animate-fade-in d-none">
           <p className="text-body text-sm uppercase tracking-[0.3em] text-primary mb-4">Photography</p>
           <h1 className="text-display text-5xl md:text-7xl lg:text-8xl font-black text-foreground leading-[0.95] mb-6">
-            Daniel<br />
+            Daniel
             <span className="text-gradient-teal">Santos</span>
           </h1>
           <p className="text-body text-lg text-muted-foreground max-w-md mx-auto mb-10">
