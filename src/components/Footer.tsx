@@ -7,10 +7,10 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12">
           <div>
             <h3 className="text-display text-lg font-bold text-foreground mb-4">
-              NOIR<span className="text-gradient-teal">PRINTS</span>
+              Daniel<span className="text-gradient-teal">Santos</span>
             </h3>
             <p className="text-body text-sm text-muted-foreground leading-relaxed">
-              Museum-quality fine art prints crafted with archival inks on premium paper. Every print tells a story.
+              Photos taken are eternalized memories.
             </p>
           </div>
           <div>
@@ -22,16 +22,16 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="text-body text-sm font-semibold uppercase tracking-widest text-foreground mb-4">Get in Touch</h4>
+            <h4 className="text-body text-sm font-semibold uppercase tracking-widest text-foreground mb-4">Let me help you</h4>
             <div className="space-y-3 text-body text-sm text-muted-foreground">
-              <div className="flex items-center gap-3"><Mail size={14} className="text-primary" /> hello@noirprints.com</div>
-              <div className="flex items-center gap-3"><Phone size={14} className="text-primary" /> +1 (555) 123-4567</div>
-              <div className="flex items-center gap-3"><MapPin size={14} className="text-primary" /> New York, NY</div>
+              <div className="flex items-center gap-3"><Mail size={14} className="text-primary" /> dannysantos.photos@gmail.com</div>
+              <div className="flex items-center gap-3"><Phone size={14} className="text-primary" /> +351 916432446</div>
+              <div className="flex items-center gap-3"><MapPin size={14} className="text-primary" /> Porto, PT</div>
             </div>
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-border text-center text-body text-xs text-muted-foreground">
-          © 2026 NoirPrints. All rights reserved.
+          © 2026 Daniel Santos Photography. All rights reserved.
         </div>
       </div>
     </footer>

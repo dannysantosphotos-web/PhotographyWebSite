@@ -15,7 +15,7 @@ const Index = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section id="headerSection" className="relative md:h-lvh flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           {/* <img src={heroImage} alt="Fotografia" className="w-full h-full object-cover" /> */}
           <video 
@@ -65,12 +65,14 @@ const Index = () => {
       {/* About strip */}
       <section className="border-t border-b border-border bg-card">
         <div className="container px-6 py-20 text-center max-w-2xl mx-auto">
-          <p className="text-body text-xs uppercase tracking-[0.3em] text-primary mb-4">About</p>
-          <h2 className="text-display text-3xl font-bold text-foreground mb-6">Printed with Precision</h2>
+          <p className="text-body text-xs uppercase tracking-[0.3em] text-primary mb-4">About me</p>
+          <h2 className="text-display text-3xl font-bold text-foreground mb-6">Path in photography</h2>
           <p className="text-body text-muted-foreground leading-relaxed">
-            Every print is produced by Gelato's global print-on-demand network using archival-grade inks
-            and premium paper. Shipped directly to your door from the facility nearest to you, reducing
-            environmental impact while ensuring gallery-worthy quality.
+            I've started getting into photography not long ago, but rapidly feel in love with it
+          </p> <br />
+          <p>Its a passion to capture moments, memories that can last a life time. Be revisited or printed on the wall or on our phones to keep those memories fresh and present. 
+            And that is the privilege of being a photographer.
+            Contact me and I'll help freeze the time and memories into a photo!
           </p>
         </div>
       </section>
