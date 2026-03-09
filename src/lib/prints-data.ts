@@ -1,9 +1,11 @@
-import printPortrait from '@/assets/wooden.jpg';
-import printUrban from '@/assets/water_leaf.jpg';
-import printOcean from '@/assets/print-ocean.jpg';
-import printForest from '@/assets/print-forest.jpg';
-import printArchitecture from '@/assets/print-architecture.jpg';
-import heroImage from '@/assets/from_the_sky.jpg';
+import woodFungus from '@/assets/wooden.jpg';
+import grandma from '@/assets/grandma.jpg';
+import tealMushroom from '@/assets/teal_mushroom.jpg';
+import pantheon from '@/assets/paris_pantheon.jpg';
+import angrySea from '@/assets/angry_sea.jpg';
+import fishingKid from '@/assets/fishing_kid.jpg';
+import grua from '@/assets/grua.jpg';
+import { styleText } from 'util';
 
 export interface PrintData {
   id: string;
@@ -11,16 +13,27 @@ export interface PrintData {
   description: string;
   image: string;
   category: string;
+  type: string;
+  location: string;
   sizes: { label: string; price: number }[];
 }
 
+export const Styles = {
+ nature: 'Nature',
+ street: 'Street',
+ landscape: 'Landscape',
+ portrait: 'Portrait'
+} as const;
+
 export const prints: PrintData[] = [
   {
-    id: 'golden-mountains',
-    title: 'Golden Mountains',
-    description: 'Misty mountain ranges bathed in golden hour light',
-    image: heroImage,
-    category: 'Landscape',
+    id: 'teal-mushroom',
+    title: 'Lonely mushroom',
+    description: 'After the rain, mushrooms prosper',
+    image: tealMushroom,
+    category: 'Portrait',
+    type: Styles.nature,
+    location: 'Castelo de Paiva',
     sizes: [
       { label: '8×10"', price: 45 },
       { label: '16×20"', price: 95 },
@@ -28,11 +41,13 @@ export const prints: PrintData[] = [
     ],
   },
   {
-    id: 'luminous-portrait',
-    title: 'Luminous',
-    description: 'Studio portrait with dramatic chiaroscuro lighting',
-    image: printPortrait,
-    category: 'Portrait',
+    id: 'grandma',
+    title: 'Grandma portrait',
+    description: 'Studio portrait with dramatic lighting',
+    image: grandma,
+    category: Styles.portrait,
+    type: Styles.portrait,
+    location: 'Home',
     sizes: [
       { label: '8×10"', price: 55 },
       { label: '16×20"', price: 120 },
@@ -40,11 +55,13 @@ export const prints: PrintData[] = [
     ],
   },
   {
-    id: 'neon-nights',
-    title: 'Neon Nights',
-    description: 'Urban cityscape with neon reflections on wet streets',
-    image: printUrban,
+    id: 'paris-phanteon',
+    title: 'France Panthon',
+    description: 'Simetrical urban cityscape',
+    image: pantheon,
     category: 'Urban',
+    type: Styles.street,
+    location: 'Castelo de Paiva',
     sizes: [
       { label: '8×10"', price: 45 },
       { label: '16×20"', price: 95 },
@@ -55,8 +72,10 @@ export const prints: PrintData[] = [
     id: 'crashing-waves',
     title: 'Crashing Waves',
     description: 'Dramatic ocean waves against volcanic rocks at sunset',
-    image: printOcean,
+    image: angrySea,
     category: 'Seascape',
+    type: Styles.street,
+    location: 'Matosinhos',
     sizes: [
       { label: '8×10"', price: 45 },
       { label: '16×20"', price: 95 },
@@ -64,11 +83,13 @@ export const prints: PrintData[] = [
     ],
   },
   {
-    id: 'forest-light',
-    title: 'Forest Light',
-    description: 'Sunbeams piercing through a misty ancient forest',
-    image: printForest,
+    id: 'fishing-kid',
+    title: 'Fishing kid',
+    description: 'Waves crash while kid cashes fish',
+    image: fishingKid,
     category: 'Nature',
+    type: Styles.street,
+    location: 'Sorrento - Italy',
     sizes: [
       { label: '8×10"', price: 50 },
       { label: '16×20"', price: 110 },
@@ -76,11 +97,13 @@ export const prints: PrintData[] = [
     ],
   },
   {
-    id: 'geometric-shadow',
-    title: 'Geometric Shadow',
-    description: 'Architectural study in light and geometric form',
-    image: printArchitecture,
+    id: 'construction-sight',
+    title: 'Construction Sight',
+    description: 'Construction over the fog',
+    image: grua,
     category: 'Architecture',
+    type: Styles.street,
+    location: 'Castelo de Paiva',
     sizes: [
       { label: '8×10"', price: 45 },
       { label: '16×20"', price: 95 },

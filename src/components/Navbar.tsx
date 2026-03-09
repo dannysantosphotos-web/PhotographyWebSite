@@ -22,7 +22,7 @@ export default function Navbar() {
       return;
     }
     const onScroll = () => {
-      setVisible(window.scrollY > window.innerHeight * 0.85);
+      setVisible(window.scrollY > window.innerHeight * 0.25);
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -39,7 +39,7 @@ export default function Navbar() {
     >
       <nav className="container flex items-center justify-between h-16 px-6">
         <Link to="/" className="text-display text-xl font-bold tracking-wider text-foreground">
-          NOIR<span className="text-gradient-teal">PRINTS</span>
+          Daniel<span className="text-gradient-teal">Santos</span>
         </Link>
 
         {/* Desktop nav */}

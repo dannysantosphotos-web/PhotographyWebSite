@@ -37,14 +37,14 @@ export default function PrintCard({ print }: Props) {
         <div className="flex items-start justify-between">
           <div>
             <h3 className="text-display text-lg font-bold text-foreground">{print.title}</h3>
-            <p className="text-body text-xs uppercase tracking-widest text-muted-foreground mt-1">{print.category}</p>
+            <p className="text-body text-xs uppercase tracking-widest text-muted-foreground mt-1">{print.type}</p>
           </div>
-          <span className="text-display text-lg font-bold text-primary">
+          {/* <span className="text-display text-lg font-bold text-primary">
             ${print.sizes[selectedSize].price}
-          </span>
+          </span> */}
         </div>
         <p className="text-body text-sm text-muted-foreground">{print.description}</p>
-        <div className="flex gap-2">
+        {/* <div className="flex gap-2">
           {print.sizes.map((size, i) => (
             <button
               key={size.label}
@@ -58,13 +58,13 @@ export default function PrintCard({ print }: Props) {
               {size.label}
             </button>
           ))}
-        </div>
-        <button
+        </div> */}
+        {/* <button
           onClick={handleAdd}
           className="w-full mt-2 py-3 text-body text-sm font-semibold uppercase tracking-widest gradient-teal text-primary-foreground rounded-full transition-all hover:opacity-90 active:scale-[0.98]"
         >
           Add to Cart
-        </button>
+        </button> */}
       </div>
     </div>
   );

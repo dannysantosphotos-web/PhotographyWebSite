@@ -23,7 +23,7 @@ const Index = () => {
           autoPlay
           muted
           playsInline
-          width="600" className="w-full h-full object-cover pt-[30px]"></video>
+          className="w-full h-auto object-cover mt-1"></video>
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
         </div>
         <div className="relative z-10 text-center px-6 animate-fade-in d-none">
@@ -48,8 +48,8 @@ const Index = () => {
       <section className="container px-6 py-24">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <p className="text-body text-xs uppercase tracking-[0.3em] text-primary mb-2">Collection</p>
-            <h2 className="text-display text-4xl font-bold text-foreground">Featured Prints</h2>
+            <p className="text-body text-xs uppercase tracking-[0.3em] text-primary mb-2">My collection of photos</p>
+            <h2 className="text-display text-4xl font-bold text-foreground">Featured</h2>
           </div>
           <Link to="/gallery" className="text-body text-sm text-primary hover:underline flex items-center gap-2">
             View All <ArrowRight size={14} />
