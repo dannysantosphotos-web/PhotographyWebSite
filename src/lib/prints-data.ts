@@ -5,12 +5,11 @@ import pantheon from '@/assets/paris_pantheon.jpg';
 import angrySea from '@/assets/angry_sea.jpg';
 import fishingKid from '@/assets/fishing_kid.jpg';
 import grua from '@/assets/grua.jpg';
-import { styleText } from 'util';
 
 export interface PrintData {
   id: string;
-  title: string;
-  description: string;
+  title: string; // key to i18n prints object
+  description: string; // key to i18n prints object
   image: string;
   category: string;
   type: string;
@@ -28,8 +27,8 @@ export const Styles = {
 export const prints: PrintData[] = [
   {
     id: 'teal-mushroom',
-    title: 'Lonely mushroom',
-    description: 'After the rain, mushrooms prosper',
+    title: 'teal-mushroom',
+    description: 'teal-mushroom',
     image: tealMushroom,
     category: 'Portrait',
     type: Styles.nature,
@@ -42,8 +41,8 @@ export const prints: PrintData[] = [
   },
   {
     id: 'grandma',
-    title: 'Grandma portrait',
-    description: 'Studio portrait with dramatic lighting',
+    title: 'grandma',
+    description: 'grandma',
     image: grandma,
     category: Styles.portrait,
     type: Styles.portrait,
@@ -56,8 +55,8 @@ export const prints: PrintData[] = [
   },
   {
     id: 'paris-phanteon',
-    title: 'France Panthon',
-    description: 'Simetrical urban cityscape',
+    title: 'paris-phanteon',
+    description: 'paris-phanteon',
     image: pantheon,
     category: 'Urban',
     type: Styles.street,
@@ -70,8 +69,8 @@ export const prints: PrintData[] = [
   },
   {
     id: 'crashing-waves',
-    title: 'Crashing Waves',
-    description: 'Dramatic ocean waves against volcanic rocks at sunset',
+    title: 'crashing-waves',
+    description: 'crashing-waves',
     image: angrySea,
     category: 'Seascape',
     type: Styles.street,
@@ -84,8 +83,8 @@ export const prints: PrintData[] = [
   },
   {
     id: 'fishing-kid',
-    title: 'Fishing kid',
-    description: 'Waves crash while kid cashes fish',
+    title: 'fishing-kid',
+    description: 'fishing-kid',
     image: fishingKid,
     category: 'Nature',
     type: Styles.street,
@@ -98,8 +97,8 @@ export const prints: PrintData[] = [
   },
   {
     id: 'construction-sight',
-    title: 'Construction Sight',
-    description: 'Construction over the fog',
+    title: 'construction-sight',
+    description: 'construction-sight',
     image: grua,
     category: 'Architecture',
     type: Styles.street,

@@ -2,19 +2,28 @@ import { Link, useLocation } from 'react-router-dom';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import { useCart } from '@/lib/cart-store';
 import { useState, useEffect } from 'react';
-
-const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/gallery', label: 'Gallery' },
-  { to: '/contact', label: 'Contact' },
-];
+import { TextResources } from '@/lib/i18n';
+import { useLanguage } from '@/lib/language-context';
 
 export default function Navbar() {
   const { totalItems } = useCart();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+  const { language, setLanguage } = useLanguage();
+  const t = TextResources.get(language);
   const isHome = location.pathname === '/';
+
+  const languageOptions: Array<{ code: 'pt' | 'en'; label: string; flag: string }> = [
+    { code: 'pt', label: 'Português', flag: '🇵🇹' },
+    { code: 'en', label: 'English', flag: '🇬🇧' },
+  ];
+
+  const navLinks = [
+    { to: '/', label: t.home },
+    { to: '/gallery', label: t.gallery },
+    { to: '/contact', label: t.contact },
+  ];
 
   useEffect(() => {
     if (!isHome) {
@@ -55,6 +64,25 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+
+          <div className="flex items-center gap-2">
+            {languageOptions.map((item) => (
+              <button
+                key={item.code}
+                onClick={() => setLanguage(item.code)}
+                className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-body text-sm transition-all ${
+                  language === item.code
+                    ? 'border-teal-500 bg-teal-600 text-primary-foreground font-semibold shadow-[0_0_15px_rgba(56,189,248,0.35)]'
+                    : 'border-border bg-background text-foreground hover:border-teal-500 hover:shadow-[0_0_15px_rgba(56,189,248,0.35)]'
+                }`}
+                aria-label={`Switch language to ${item.label}`}
+              >
+                <span>{item.flag}</span>
+                <span>{item.label}</span>
+              </button>
+            ))}
+          </div>
+
           {/* <Link to="/cart" className="relative p-2 text-foreground hover:text-primary transition-colors">
             <ShoppingBag size={20} />
             {totalItems > 0 && (
@@ -84,6 +112,23 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <div className="flex flex-wrap items-center gap-2">
+            {languageOptions.map((item) => (
+              <button
+                key={item.code}
+                onClick={() => setLanguage(item.code)}
+                className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-body text-sm transition-all ${
+                  language === item.code
+                    ? 'border-teal-500 bg-teal-600 text-primary-foreground font-semibold shadow-[0_0_15px_rgba(56,189,248,0.35)]'
+                    : 'border-border bg-background text-foreground hover:border-teal-500 hover:shadow-[0_0_15px_rgba(56,189,248,0.35)]'
+                }`}
+                aria-label={`Switch language to ${item.label}`}
+              >
+                <span>{item.flag}</span>
+                <span>{item.label}</span>
+              </button>
+            ))}
+          </div>
           <Link to="/cart" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 text-foreground">
             <ShoppingBag size={18} /> Cart ({totalItems})
           </Link>

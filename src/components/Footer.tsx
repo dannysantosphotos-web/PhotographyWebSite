@@ -1,6 +1,11 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useLanguage } from '@/lib/language-context';
+import { TextResources } from '@/lib/i18n';
 
 export default function Footer() {
+  const { language } = useLanguage();
+  const t = TextResources.get(language);
+
   return (
     <footer className="border-t border-border bg-card">
       <div className="container px-6 py-16">
@@ -10,15 +15,15 @@ export default function Footer() {
               Daniel<span className="text-gradient-teal">Santos</span>
             </h3>
             <p className="text-body text-sm text-muted-foreground leading-relaxed">
-              Photos taken are eternalized memories.
+              {t.footer.tagline}
             </p>
           </div>
           <div>
-            <h4 className="text-body text-sm font-semibold uppercase tracking-widest text-foreground mb-4">Quick Links</h4>
+            <h4 className="text-body text-sm font-semibold uppercase tracking-widest text-foreground mb-4">{t.footer.quickLinks}</h4>
             <div className="space-y-2 text-body text-sm text-muted-foreground">
-              <a href="/gallery" className="block hover:text-primary transition-colors">Gallery</a>
-              <a href="/contact" className="block hover:text-primary transition-colors">Contact</a>
-              <a href="/cart" className="block hover:text-primary transition-colors">Cart</a>
+              <a href="/gallery" className="block hover:text-primary transition-colors">{t.gallery}</a>
+              <a href="/contact" className="block hover:text-primary transition-colors">{t.contact}</a>
+              {/* <a href="/cart" className="block hover:text-primary transition-colors">Cart</a> */}
             </div>
           </div>
           <div>
@@ -31,7 +36,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-border text-center text-body text-xs text-muted-foreground">
-          © 2026 Daniel Santos Photography. All rights reserved.
+          {t.footer.copyright}
         </div>
       </div>
     </footer>
