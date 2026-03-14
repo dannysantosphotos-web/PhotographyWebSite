@@ -109,7 +109,7 @@
   }
   to {
     opacity: 1;
-    transform: translateY(80%);
+    transform: translateY(60%);
   }
 }
 
@@ -120,8 +120,13 @@
   }
   to {
     opacity: 1;
-    transform: translateY(100%);
+    transform: translateY(90%);
   }
+}
+
+video {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 798px){
@@ -130,7 +135,7 @@
   }
 
   video {
-    max-height: 70%;
+    max-height: 60%;
   }
 
   #dashboardTitle {

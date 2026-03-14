@@ -6,6 +6,17 @@ export interface I18nStrings {
   home: string;
   gallery: string;
   contact: string;
+  contactTitle: string;
+  contactSubtitle: string;
+  contactDescription: string;
+  contactEmailLabel: string;
+  contactPhoneLabel: string;
+  contactStudioLabel: string;
+  contactFormNameLabel: string;
+  contactFormEmailLabel: string;
+  contactFormMessageLabel: string;
+  contactFormSubmit: string;
+  contactToastSuccess: string;
   photography: string;
   heroTagline: string;
   exploreGallery: string;
@@ -36,6 +47,17 @@ export class TextResources {
       home: 'Início',
       gallery: 'Galeria',
       contact: 'Contato',
+      contactTitle: 'Contacte-me',
+      contactSubtitle: 'Entre em contato',
+      contactDescription: 'Tem dúvidas sobre impressões, pedidos personalizados ou envio? Adoraríamos ouvir você.',
+      contactEmailLabel: 'Email',
+      contactPhoneLabel: 'Telefone',
+      contactStudioLabel: 'Estúdio',
+      contactFormNameLabel: 'Nome',
+      contactFormEmailLabel: 'Email',
+      contactFormMessageLabel: 'Mensagem',
+      contactFormSubmit: 'Enviar mensagem',
+      contactToastSuccess: 'Mensagem enviada! Entraremos em contato em breve.',
       photography: 'Fotografia',
       heroTagline: 'Fotos tiradas são memórias eternizadas',
       exploreGallery: 'Explorar Galeria',
@@ -54,27 +76,27 @@ export class TextResources {
       prints: {
         'teal-mushroom': {
           title: 'Cogumelo solitário',
-          description: 'Depois da chuva, os cogumelos prosperam',
+          description: 'Depois da chuva, os cogumelos prosperam.',
         },
         grandma: {
-          title: 'Retrato Avó',
-          description: 'Retrato de estúdio com iluminação dramática',
+          title: 'Retrato da vovó',
+          description: 'Retrato de estúdio com iluminação dramática.',
         },
         'paris-phanteon': {
-          title: 'Panteão Francês',
-          description: 'Paisagem urbana simétrica',
+          title: 'Panteão de Paris',
+          description: 'Paisagem urbana simétrica ao redor do Panteão.',
         },
         'crashing-waves': {
           title: 'Ondas quebrando',
-          description: 'Ondas dramáticas do oceano contra rochas vulcânicas ao pôr do sol',
+          description: 'Ondas dramáticas do oceano contra rochas vulcânicas ao pôr do sol.',
         },
         'fishing-kid': {
           title: 'Menino pescador',
-          description: 'Ondas batem enquanto garoto pesca',
+          description: 'Ondas quebram enquanto o garoto pesca.',
         },
         'construction-sight': {
-          title: 'Canal de construção',
-          description: 'Construção emergindo na névoa',
+          title: 'Canteiro de obras',
+          description: 'Construção emergindo na névoa.',
         },
       },
     },
@@ -82,6 +104,17 @@ export class TextResources {
       home: 'Home',
       gallery: 'Gallery',
       contact: 'Contact',
+      contactTitle: 'Get in touch',
+      contactSubtitle: 'Reach out',
+      contactDescription: 'Have questions about prints, custom orders, or shipping? We would love to hear from you.',
+      contactEmailLabel: 'Email',
+      contactPhoneLabel: 'Phone',
+      contactStudioLabel: 'Studio',
+      contactFormNameLabel: 'Name',
+      contactFormEmailLabel: 'Email',
+      contactFormMessageLabel: 'Message',
+      contactFormSubmit: 'Send Message',
+      contactToastSuccess: 'Message sent! We will get back to you soon.',
       photography: 'Photography',
       heroTagline: 'Photos taken are eternalized memories',
       exploreGallery: 'Explore Gallery',
@@ -99,28 +132,28 @@ export class TextResources {
       },
       prints: {
         'teal-mushroom': {
-          title: 'Lonely mushroom',
-          description: 'After the rain, mushrooms prosper',
+          title: 'Lonely Mushroom',
+          description: 'After the rain, mushrooms thrive.',
         },
         grandma: {
-          title: 'Grandma portrait',
-          description: 'Studio portrait with dramatic lighting',
+          title: 'Grandma Portrait',
+          description: 'Studio portrait with dramatic lighting.',
         },
         'paris-phanteon': {
-          title: 'France Panthon',
-          description: 'Symmetrical urban cityscape',
+          title: 'Paris Panthéon',
+          description: 'Symmetrical cityscape around the Panthéon.',
         },
         'crashing-waves': {
-          title: 'Crashing waves',
-          description: 'Dramatic ocean waves against volcanic rocks at sunset',
+          title: 'Crashing Waves',
+          description: 'Dramatic ocean waves against volcanic rocks at sunset.',
         },
         'fishing-kid': {
-          title: 'Fishing kid',
-          description: 'Waves crash while kid catches fish',
+          title: 'Fishing Kid',
+          description: 'Waves crash as the kid fishes.',
         },
         'construction-sight': {
-          title: 'Construction sight',
-          description: 'Construction over the fog',
+          title: 'Construction Site',
+          description: 'Construction emerging through the fog.',
         },
       },
     },

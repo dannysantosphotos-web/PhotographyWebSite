@@ -37,7 +37,7 @@ const Index = () => {
             Daniel
             <span className="text-gradient-teal">Santos</span>
           </h1>
-          <p className="text-body text-lg text-muted-foreground max-w-md mx-auto mb-10">
+          <p className="text-body text-lg text-muted-foreground max-w-md mx-auto mb-8 md:mb-10">
             {t.heroTagline}
           </p>
           <Link
