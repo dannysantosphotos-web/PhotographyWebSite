@@ -1,25 +1,41 @@
 import * as React from "react";
-import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
+import Slider, { type Settings } from "react-slick";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-type CarouselApi = UseEmblaCarouselType[1];
-type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
-type CarouselOptions = UseCarouselParameters[0];
-type CarouselPlugin = UseCarouselParameters[1];
+type SlickArrowProps = {
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+};
+
+type CarouselApi = {
+  slickNext: () => void;
+  slickPrev: () => void;
+  slickGoTo: (index: number, dontAnimate?: boolean) => void;
+  innerSlider?: {
+    state?: {
+      currentSlide: number;
+      slideCount: number;
+    };
+  };
+} | null;
+
+type CarouselOptions = Settings;
 
 type CarouselProps = {
   opts?: CarouselOptions;
-  plugins?: CarouselPlugin;
   orientation?: "horizontal" | "vertical";
   setApi?: (api: CarouselApi) => void;
 };
 
 type CarouselContextProps = {
-  carouselRef: ReturnType<typeof useEmblaCarousel>[0];
-  api: ReturnType<typeof useEmblaCarousel>[1];
+  api: CarouselApi;
   scrollPrev: () => void;
   scrollNext: () => void;
   canScrollPrev: boolean;
@@ -39,33 +55,31 @@ function useCarousel() {
 }
 
 const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & CarouselProps>(
-  ({ orientation = "horizontal", opts, setApi, plugins, className, children, ...props }, ref) => {
-    const [carouselRef, api] = useEmblaCarousel(
-      {
-        ...opts,
-        axis: orientation === "horizontal" ? "x" : "y",
-      },
-      plugins,
-    );
-    const [canScrollPrev, setCanScrollPrev] = React.useState(false);
-    const [canScrollNext, setCanScrollNext] = React.useState(false);
-
-    const onSelect = React.useCallback((api: CarouselApi) => {
-      if (!api) {
-        return;
-      }
-
-      setCanScrollPrev(api.canScrollPrev());
-      setCanScrollNext(api.canScrollNext());
-    }, []);
+  ({ orientation = "horizontal", opts, setApi, className, children, ...props }, ref) => {
+    const [api, setLocalApi] = React.useState<CarouselApi>(null);
 
     const scrollPrev = React.useCallback(() => {
-      api?.scrollPrev();
+      api?.slickPrev();
     }, [api]);
 
     const scrollNext = React.useCallback(() => {
-      api?.scrollNext();
+      api?.slickNext();
     }, [api]);
+
+    const canScrollPrev = Boolean(api?.innerSlider?.state?.currentSlide && api.innerSlider.state.currentSlide > 0);
+    const canScrollNext = Boolean(
+      api?.innerSlider?.state?.currentSlide != null &&
+        api?.innerSlider?.state?.slideCount != null &&
+        api.innerSlider.state.currentSlide < api.innerSlider.state.slideCount - 1,
+    );
+
+    React.useEffect(() => {
+      if (!api || !setApi) {
+        return;
+      }
+
+      setApi(api);
+    }, [api, setApi]);
 
     const handleKeyDown = React.useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -80,39 +94,17 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
       [scrollPrev, scrollNext],
     );
 
-    React.useEffect(() => {
-      if (!api || !setApi) {
-        return;
-      }
-
-      setApi(api);
-    }, [api, setApi]);
-
-    React.useEffect(() => {
-      if (!api) {
-        return;
-      }
-
-      onSelect(api);
-      api.on("reInit", onSelect);
-      api.on("select", onSelect);
-
-      return () => {
-        api?.off("select", onSelect);
-      };
-    }, [api, onSelect]);
-
     return (
       <CarouselContext.Provider
         value={{
-          carouselRef,
-          api: api,
+          api,
           opts,
-          orientation: orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
+          orientation: orientation || "horizontal",
           scrollPrev,
           scrollNext,
           canScrollPrev,
           canScrollNext,
+          setApi: setLocalApi,
         }}
       >
         <div
@@ -131,17 +123,56 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
 );
 Carousel.displayName = "Carousel";
 
+const SlickPrevArrow = ({ className, style, onClick }: SlickArrowProps) => (
+  <button
+    type="button"
+    className={cn("inline-flex items-center justify-center rounded-full bg-background shadow-lg", className)}
+    style={style}
+    onClick={onClick}
+  >
+    <ArrowLeft className="h-4 w-4" />
+    <span className="sr-only">Previous slide</span>
+  </button>
+);
+
+const SlickNextArrow = ({ className, style, onClick }: SlickArrowProps) => (
+  <button
+    type="button"
+    className={cn("inline-flex items-center justify-center rounded-full bg-background shadow-lg", className)}
+    style={style}
+    onClick={onClick}
+  >
+    <ArrowRight className="h-4 w-4" />
+    <span className="sr-only">Next slide</span>
+  </button>
+);
+
 const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => {
-    const { carouselRef, orientation } = useCarousel();
+  ({ className, children, ...props }, ref) => {
+    const { opts, setApi } = useCarousel();
+    const sliderRef = React.useRef<any>(null);
+
+    React.useLayoutEffect(() => {
+      if (!setApi) {
+        return;
+      }
+
+      if (sliderRef.current) {
+        setApi(sliderRef.current as CarouselApi);
+      }
+    }, [setApi]);
 
     return (
-      <div ref={carouselRef} className="overflow-hidden">
-        <div
-          ref={ref}
-          className={cn("flex", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className)}
-          {...props}
-        />
+      <div ref={ref} className={cn("overflow-hidden relative", className)} {...props}>
+        <Slider
+          ref={sliderRef}
+          {...opts}
+          arrows={true}
+          prevArrow={<SlickPrevArrow />}
+          nextArrow={<SlickNextArrow />}
+        >
+          {children}
+        </Slider>
       </div>
     );
   },

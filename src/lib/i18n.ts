@@ -26,6 +26,13 @@ export interface I18nStrings {
   pathInPhotography: string;
   aboutDescription: string;
   aboutExtra: string;
+  sportsPhotographyTitle: string;
+  sportsPhotographyDescription: string;
+  portraitsPhotographyTitle: string;
+  portraitsPhotographyDescription: string;
+  streetPhotographyTitle: string;
+  streetPhotographyDescription: string;
+  photographyTypesLabel: string;
   footer: {
     tagline: string;
     quickLinks: string;
@@ -67,6 +74,13 @@ export class TextResources {
       pathInPhotography: 'Caminho na fotografia',
       aboutDescription: 'Comecei a me interessar por fotografia há pouco tempo, mas rapidamente me apaixonei por ela.',
       aboutExtra: 'É uma paixão capturar momentos, memórias que podem durar uma vida inteira. Ser revisitadas ou impressas na parede ou no celular para manter essas memórias frescas e presentes. E esse é o privilégio de ser fotógrafo. Entre em contato e eu ajudarei a congelar o tempo e as memórias em uma foto!',
+      sportsPhotographyTitle: 'Fotografia esportiva',
+      sportsPhotographyDescription: 'Ação de alta energia e movimento capturados em cada quadro.',
+      portraitsPhotographyTitle: 'Fotografia de retratos',
+      portraitsPhotographyDescription: 'Retratos pessoais com emoção expressiva e profundidade.',
+      streetPhotographyTitle: 'Fotografia de rua',
+      streetPhotographyDescription: 'Histórias urbanas, arquitetura e vida cotidiana em movimento.',
+      photographyTypesLabel: 'Tipos de fotografia',
       footer: {
         tagline: 'Fotos tiradas são memórias eternizadas.',
         quickLinks: 'Links rápidos',
@@ -124,6 +138,13 @@ export class TextResources {
       pathInPhotography: 'Path in photography',
       aboutDescription: 'I started getting into photography not long ago, but quickly fell in love with it.',
       aboutExtra: 'It is a passion to capture moments, memories that can last a lifetime. Be revisited or printed on the wall or on our phones to keep those memories fresh and present. And that is the privilege of being a photographer. Contact me and I’ll help freeze time and memories into a photo!',
+      sportsPhotographyTitle: 'Sports photography',
+      sportsPhotographyDescription: 'High-energy action and movement captured in every frame.',
+      portraitsPhotographyTitle: 'Portraits photography',
+      portraitsPhotographyDescription: 'Personal portraits with expressive emotion and depth.',
+      streetPhotographyTitle: 'Street photography',
+      streetPhotographyDescription: 'Urban stories, architecture, and everyday life in motion.',
+      photographyTypesLabel: 'Photography types',
       footer: {
         tagline: 'Photos taken are eternalized memories.',
         quickLinks: 'Quick Links',
