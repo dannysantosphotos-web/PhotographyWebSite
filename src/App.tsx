@@ -7,6 +7,7 @@ import { CartProvider } from "@/lib/cart-store";
 import { LanguageProvider } from "@/lib/language-context";
 import Index from "./pages/Index";
 import GalleryPage from "./pages/GalleryPage";
+import SportsPhotographyPage from "./pages/SportsPhotographyPage";
 import ContactPage from "./pages/ContactPage";
 import CartPage from "./pages/CartPage";
 import PaymentSuccessPage from "./pages/PaymentSuccessPage";
@@ -25,6 +26,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/sports-photography" element={<SportsPhotographyPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/payment-success" element={<PaymentSuccessPage />} />

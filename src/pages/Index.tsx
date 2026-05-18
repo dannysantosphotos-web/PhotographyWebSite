@@ -179,12 +179,20 @@ const Index = () => {
           <p className="text-body text-lg text-muted-foreground max-w-md mx-auto mb-8 md:mb-10">
             {t.heroTagline}
           </p>
-          <Link
-            to="/gallery"
-            className="inline-flex items-center gap-3 px-8 py-4 gradient-teal text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-full hover:opacity-90 transition-all"
-          >
-            {t.exploreGallery} <ArrowRight size={16} />
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-3 px-8 py-4 gradient-teal text-primary-foreground text-body text-sm font-semibold uppercase tracking-widest rounded-full hover:opacity-90 transition-all"
+            >
+              {t.exploreGallery} <ArrowRight size={16} />
+            </Link>
+            <Link
+              to="/sports-photography"
+              className="inline-flex items-center gap-3 px-8 py-4 border border-border bg-card text-body text-sm font-semibold uppercase tracking-widest rounded-full text-foreground hover:border-primary hover:text-primary transition-all"
+            >
+              Sports Photography <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </section>
 

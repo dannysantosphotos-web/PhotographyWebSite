@@ -28,6 +28,10 @@ export interface I18nStrings {
   aboutExtra: string;
   sportsPhotographyTitle: string;
   sportsPhotographyDescription: string;
+  sportsPhotographyPageLabel: string;
+  sportsPhotographyPageHeading: string;
+  sportsPhotographyPageSubtitle: string;
+  sportsPhotographyTabs: Record<string, string>;
   portraitsPhotographyTitle: string;
   portraitsPhotographyDescription: string;
   streetPhotographyTitle: string;
@@ -74,8 +78,17 @@ export class TextResources {
       pathInPhotography: 'Caminho na fotografia',
       aboutDescription: 'Comecei a me interessar por fotografia há pouco tempo, mas rapidamente me apaixonei por ela.',
       aboutExtra: 'É uma paixão capturar momentos, memórias que podem durar uma vida inteira. Ser revisitadas ou impressas na parede ou no celular para manter essas memórias frescas e presentes. E esse é o privilégio de ser fotógrafo. Entre em contato e eu ajudarei a congelar o tempo e as memórias em uma foto!',
-      sportsPhotographyTitle: 'Fotografia esportiva',
+      sportsPhotographyTitle: 'Fotografia desportiva',
       sportsPhotographyDescription: 'Ação de alta energia e movimento capturados em cada quadro.',
+      sportsPhotographyPageLabel: 'Galeria',
+      sportsPhotographyPageHeading: 'Fotografia esportiva',
+      sportsPhotographyPageSubtitle: 'Amor ao desporto pela minha lente',
+      sportsPhotographyTabs: {
+        Basketball: 'Basquetebol',
+        Football: 'Futebol',
+        Futsal: 'Futsal',
+        Other: 'Outros',
+      },
       portraitsPhotographyTitle: 'Fotografia de retratos',
       portraitsPhotographyDescription: 'Retratos pessoais com emoção expressiva e profundidade.',
       streetPhotographyTitle: 'Fotografia de rua',
@@ -140,6 +153,15 @@ export class TextResources {
       aboutExtra: 'It is a passion to capture moments, memories that can last a lifetime. Be revisited or printed on the wall or on our phones to keep those memories fresh and present. And that is the privilege of being a photographer. Contact me and I’ll help freeze time and memories into a photo!',
       sportsPhotographyTitle: 'Sports photography',
       sportsPhotographyDescription: 'High-energy action and movement captured in every frame.',
+      sportsPhotographyPageLabel: 'Sports photography',
+      sportsPhotographyPageHeading: 'Sports photography',
+      sportsPhotographyPageSubtitle: 'Love for sport through my lens',
+      sportsPhotographyTabs: {
+        Basketball: 'Basketball',
+        Football: 'Football',
+        Futsal: 'Futsal',
+        Other: 'Other',
+      },
       portraitsPhotographyTitle: 'Portraits photography',
       portraitsPhotographyDescription: 'Personal portraits with expressive emotion and depth.',
       streetPhotographyTitle: 'Street photography',
