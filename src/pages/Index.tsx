@@ -190,7 +190,7 @@ const Index = () => {
               to="/sports-photography"
               className="inline-flex items-center gap-3 px-8 py-4 border border-border bg-card text-body text-sm font-semibold uppercase tracking-widest rounded-full text-foreground hover:border-primary hover:text-primary transition-all"
             >
-              Sports Photography <ArrowRight size={16} />
+              {t.sportsPhotographyTitle} <ArrowRight size={16} />
             </Link>
           </div>
         </div>
